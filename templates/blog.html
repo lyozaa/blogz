@@ -1,0 +1,18 @@
+<!--import jinja2?-->
+{% extends "base.html" %}
+
+{% block content %}
+    
+<h1>Build-a-Blog</h1>
+
+{% if posts|length == 0 %} <!--need to import jinja 2 for this?--><!--Not sure what this "should" look like, no example shown-->
+    <p>There's nothing here yet... would you like to <a href="/newpost.html"></a>write something new</a>?</p>
+{% else %}
+{% for post in posts %} <!--have to iterate over all blogs to generate blog previews -- does order (new>old) matter?-->
+    <postheader>{{blog_title}}</postheader>
+    <!--Link to {{post}} in postheader above-->
+    <p>{{blog_body}}</p>           
+{% endfor %}  
+{% endif %}
+
+{% endblock %}
