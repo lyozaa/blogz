@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Write Something New</h1>
-<br>
-<form methods='POST'>
-    <label>Title for your new blog:
-        <input type="text" name='blog_title' />
-    </label>
-    <p class="error">{{title_error}}</p>
+    <h1>Add a New Blog</h1>
+    <br>
+    <form method="POST">
+        <label>Title for your new blog:
+            <input type="text" name="title" required />
+        </label>
+        <br><br>
+        <label>Your new blog:
+            <textarea type="text" name="body" required></textarea>
+        </label>
+        <br><br>
+        <input type="submit" value="Add Entry">
+    </form>
 
-    <label>Your new blog:
-        <input type="textarea" name="blog_body" />
-    </label>
-    <p class="error">{{blog_entry_error}}</p>
-
-    <input type="submit" value="Add Entry">
-</form>
-{% endblock %}   
+{% endblock %}
+  
