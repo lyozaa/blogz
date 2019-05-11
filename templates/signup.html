@@ -2,22 +2,26 @@
 
 {% block content %}
 <h1>Sign Up for Blogz!</h1>
+
 <form action="/signup" method="POST">
     <table>
         <tr>
             <td><label for="username">Username</label></td>
             <td>
                 <input name="username" type="username" value="{{ email }}">
+                <span class="error">{{username_error}}</span>
             </td>
         </tr>
         <tr>
             <td><label for="password">Password</label></td>
             <td>
                 <input name="password" type="password">
+                <span class="error">{{password_error}}</span>
             </td>
         </tr>
         <tr>
             <td><label for="verify">Verify Password</label></td>
+            <span class="error">{{verify_error}}</span>
             <td>
                 <input name="verify" type="password">
             </td>

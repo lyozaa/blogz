@@ -35,11 +35,11 @@ def index():
 
 @app.route("/blog")
 def blog_index():
-    #if you want to see the index page that displays all the blog posts
+    #To see the index page that displays all the blog posts
     if not request.args.get("id"):
         all_posts = Blog.query.all()
         return render_template("blog.html", title="Blog", posts=all_posts)
-    #if you want to access a specific blog's page
+    #To access a specific blog post's page
     else: 
         blog_id_query = request.args.get("id") #this needs to get the k/v of the post and the id # of the post
         blog_id = Blog.query.get(blog_id_query)
@@ -69,11 +69,13 @@ def login():
         password = request.form["password"]
         user = User.query.filter_by(username=username).first()
         if user and user.password == password:
-            # "remember that the user has logged in"
+            # TODO: "remember that the user has logged in"
             return redirect("/newpost")
         else:
-            #tell them why the login failed
-            return "<h1>Error!</h1>"
+            #TODO: tell them why the login failed -----------------write better errors and only show relevant errors!
+            return render_template("login.html", 
+                username_error = "Username is invalid.",
+                password_error = "Password is invalid.")
 
     return render_template("login.html")
 
@@ -118,10 +120,13 @@ def signup():
                 new_user = User(username, password)
                 db.session.add(new_user)
                 db.session.commit()
-                # to do - remember the user
+                # TODO: remember the user
                 return redirect("/newpost")
             else:
-                return "<h1>duplicate user</h1>"
+                return render_template("signup.html", 
+                    username_error = username_error_msg,
+                    password_error = password_error_msg,
+                    verify_error = verify_password_error_msg)
 
     return render_template("signup.html")
 
