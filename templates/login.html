@@ -3,20 +3,20 @@
 {% block content %}
 <h1>Log in to your Blogz account!</h1>
 
-<form action="/login" method="post">
+<form action="/login" method="POST">
     <table>
         <tr>
             <td><label for="username">Username</label></td>
             <td>
                 <input name="username" type="username" value="{{ email }}">
-                <span class="error">{{username_error}}</span>
+                <span>{{username_error}}</span>
             </td>
         </tr>
         <tr>
             <td><label for="password">Password</label></td>
             <td>
                 <input name="password" type="password">
-                <span class="error">{{password_error}}</span>
+                <span>{{password_error}}</span>
             </td>
         </tr>
     </table>
