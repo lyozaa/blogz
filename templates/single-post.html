@@ -3,7 +3,6 @@
 
     <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
-
-    <br><br><br>
-    <p>post by <a href="blog/?id={{username}}">{{username}}</a></p>
+    <br>
+    <p><i>written by... <a href="/blog?user={{post.owner_id}}">{{post.owner.username}}</a></i></p>
 {% endblock %}

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{title}}</title>
-    </head>
     <body>
+        <!-- CSS Styling -->
         <style>
             h1{
                 text-align: center;
@@ -19,18 +17,33 @@
             h2{
                 font-size: 1.5em;
             }
-            nav{
-                text-align: left;
-                font-size: 1em;
+            nav ul{
+                padding: 0;
+                display: inline-block;
+                margin-top: 5px;
+            }
+
+            nav ul li{
+                list-style: none;
+                display: inline-block;
+                margin-right: 15px;
+            }
+
+            .user-account{
+                list-style: none;
+                display: inline-block;
+                margin-top: 5px;
+                float: right;
             }
         </style>
 
         <nav>
-            <a href="/">Home</a>    &emsp;
-            <a href="/blog">Main Blog Page</a>  &emsp;
-            <a href="/newpost">Add A Blog Entry</a> &emsp;
-            <a href="/logout">Log Out</a>   &emsp;
-            <a href="/login">Login</a>  &emsp;
+            <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/blog">all posts</a></li>
+            <li><a href="/newpost">new post</a></li>
+            </ul>
+            <li class="user-account"><a href="/login">login</a> || <a href="/logout">log out</a></li>
         </nav>
 
         {% with messages = get_flashed_messages(with_categories=True) %}
