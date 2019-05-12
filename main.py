@@ -55,9 +55,15 @@ def login():
             return render_template("login.html")
         else:
             session["username"] = username
-            flash("Logged In!", category="success")
+            # session['logged_in']=True ----------- need flask-login module for this kind of thing, i think
+            flash("Logged In!", category="success") 
             return redirect("/newpost")
     else:
+        # if:
+        #     session['logged_in']=True:
+        #     flash("You're already logged in!", category=error) 
+        #     return redirect("/blog")
+        # else:
         return render_template("login.html")
 
 
